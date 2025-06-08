@@ -16,7 +16,7 @@ The project is structured into the following main modules:
     The `fetch_data.py` script uses command-line arguments to specify the data source, asset identifiers, date ranges, and output options (database and/or JSON).
 
 *   **Analysis Modules (`analysis_modules/`)**: Contains scripts for data analysis. Currently includes:
-    *   `technical_analyzer.py`: Calculates common technical indicators (SMA, RSI, MACD) from price data loaded from the database or a JSON file, and can save results back to the database or a JSON file.
+    *   `technical_analyzer.py`: Calculates a suite of common technical indicators from price data. Data can be loaded from the database or a JSON file, and results can be saved back to the database (long format) or a JSON file (wide format).
 
 *   **AI Core (`ai_core/`)**: (Future Scope) Houses the machine learning models for price prediction, asset correlation, and risk/reward ranking.
 *   **API (`api/`)**: (Future Scope) Provides a REST API for interacting with the system and integrating with external tools or trading bots.
@@ -106,16 +106,29 @@ The `fetch_data.py` script in the `data_collection` directory allows you to fetc
 
 ### Using the Technical Analyzer Script (`technical_analyzer.py`)
 
-The `technical_analyzer.py` script in `analysis_modules` loads price data (from DB or JSON), calculates technical indicators (SMA, RSI, MACD), and saves them (to DB and/or JSON).
+The `technical_analyzer.py` script in `analysis_modules` loads price data (from DB or JSON), calculates a range of technical indicators, and saves them (to DB and/or JSON).
 
 **Key CLI Arguments:**
-*   `--symbol`: Asset symbol for DB operations (required if using DB input without `--no_db_input`).
+*   `--symbol`: Asset symbol for DB operations (required if using DB input without `--no_db_input`, or for DB output).
 *   `--input_json_file`: Path to load data from JSON.
 *   `--no_db_input`: If set, data must be from `--input_json_file`.
 *   Database connection: `--db_host`, `--db_port`, `--db_user`, `--db_password`, `--db_name`.
 *   Data filtering (for DB source): `--start_date`, `--end_date`, `--limit`.
 *   `--output_json_file`: Path to save output with indicators as JSON.
 *   `--no_db_output`: To disable saving indicators to the database.
+
+**Key Indicators Calculated:**
+*   Simple Moving Average (e.g., `SMA_20`)
+*   Relative Strength Index (e.g., `RSI_14`)
+*   Moving Average Convergence Divergence (`MACD_line`, `MACD_signal`, `MACD_hist`)
+*   Bollinger Bands (`bb_bbm`, `bb_bbh`, `bb_bbl`)
+*   Ichimoku Cloud (`ichimoku_conv`, `ichimoku_base`, `ichimoku_a`, `ichimoku_b`, `ichimoku_lag`) - *Requires sufficient data length (e.g., >52 periods for default settings) and full OHLC data.*
+*   Volume Weighted Average Price (`vwap`) - *Requires volume data; will be null if volume is zero or unavailable.*
+*   Stochastic Oscillator (`stoch_k`, `stoch_d`) - *Requires full OHLC data.*
+*   Average True Range (`atr`) - *Requires full OHLC data.*
+
+**Note on Data Requirements:**
+While the script can process data containing only 'close' prices (e.g., from CoinGecko, where OHL data is duplicated from Close and Volume is 0), for the most accurate and meaningful calculations, especially for indicators like Ichimoku Cloud, VWAP, Stochastic Oscillator, and ATR, it is highly recommended to use input data that includes complete Open, High, Low, Close, and Volume (OHLCV) information (e.g., data fetched from Binance). The script will attempt to calculate all indicators but will print warnings if necessary input columns (like 'volume' for VWAP or distinct OHL for others) are missing, appear to be duplicated from the 'close' price, or if data length is insufficient for an indicator's window. In such cases, the values for affected indicators may be `null` (or `NaN`).
 
 **Examples:**
 
