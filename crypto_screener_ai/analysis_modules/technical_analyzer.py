@@ -20,6 +20,9 @@ except ImportError:
         class Error(Exception): pass # Mock base error class
     print("Warning: psycopg2-binary not installed. Database operations will be unavailable.")
 
+# Import from common utility
+from crypto_screener_ai.common.db_utils import get_db_connection, get_asset_id
+
 try:
     from ta.trend import MACD, SMAIndicator, IchimokuIndicator
     from ta.momentum import RSIIndicator, StochasticOscillator
@@ -39,33 +42,7 @@ except ImportError:
     class VolumeWeightedAveragePrice: pass
 
 
-def get_db_connection(db_host, db_port, db_user, db_password, db_name):
-    """Establishes a connection to the PostgreSQL database."""
-    if not DB_AVAILABLE:
-        print("Database operations unavailable: psycopg2-binary is not installed.")
-        return None
-    try:
-        conn = psycopg2.connect(host=db_host, port=db_port, user=db_user, password=db_password, dbname=db_name)
-        print(f"Successfully connected to database '{db_name}' on {db_host}:{db_port}")
-        return conn
-    except psycopg2.Error as e:
-        print(f"Error connecting to database '{db_name}' on {db_host}:{db_port}: {e}")
-        return None
-
-def get_asset_id(conn, symbol: str) -> int | None:
-    """Retrieves asset_id from the 'assets' table for a given symbol."""
-    try:
-        with conn.cursor() as cur:
-            cur.execute("SELECT asset_id FROM assets WHERE symbol = %s;", (symbol,))
-            result = cur.fetchone()
-            if result:
-                return result[0]
-            else:
-                print(f"Asset symbol '{symbol}' not found in database.")
-                return None
-    except psycopg2.Error as e:
-        print(f"Error fetching asset_id for symbol '{symbol}': {e}")
-        return None
+# Removed local get_db_connection and get_asset_id functions
 
 def load_data(args, conn) -> tuple[pd.DataFrame | None, int | None]:
     """Loads data from JSON file or database based on provided arguments."""
@@ -495,11 +472,11 @@ if __name__ == "__main__":
     parser.add_argument('--no_db_input', action='store_true', help="Force loading from JSON if --input_json_file is provided.")
 
     # DB connection
-    parser.add_argument('--db_host', default='localhost', help="DB host")
-    parser.add_argument('--db_port', default=5432, type=int, help="DB port")
-    parser.add_argument('--db_user', default='postgres', help="DB user")
-    parser.add_argument('--db_password', help="DB password")
-    parser.add_argument('--db_name', default='crypto_data', help="DB name")
+    parser.add_argument('--db_host', default=None, help="DB host (overrides .env, default: 'localhost')")
+    parser.add_argument('--db_port', default=None, type=int, help="DB port (overrides .env, default: 5432)")
+    parser.add_argument('--db_user', default=None, help="DB user (overrides .env, default: 'postgres')")
+    parser.add_argument('--db_password', default=None, help="DB password (overrides .env or environment)")
+    parser.add_argument('--db_name', default=None, help="DB name (overrides .env, default: 'crypto_data')")
 
     # Data filtering (for DB source)
     parser.add_argument('--start_date', type=str, help="Start date for DB query (YYYY-MM-DD HH:MM:SS or YYYY-MM-DD)")
@@ -515,20 +492,49 @@ if __name__ == "__main__":
     # Validate arguments
     if not args.no_db_input and not args.symbol:
         parser.error("--symbol is required if loading data from database (i.e., --no_db_input is not set).")
-    if (not args.no_db_input or not args.no_db_output) and not args.db_password and DB_AVAILABLE:
-        # Only require password if DB operations are intended and DB_AVAILABLE (psycopg2 installed)
-        print("Warning: --db_password not provided. Database operations might fail if password is required.")
 
+    # Resolve password early for the warning check
+    resolved_db_password_for_warning = args.db_password or os.getenv('DB_PASSWORD')
+    if (not args.no_db_input or not args.no_db_output) and not resolved_db_password_for_warning and DB_AVAILABLE:
+        # Only print warning if DB operations are intended, psycopg2 is available, and no password resolved yet.
+        print("Warning: Database password not found via CLI (--db_password) or .env (DB_PASSWORD). DB operations might fail if password is required.")
 
     conn = None
     asset_id_from_db = None # To store asset_id if fetched/used by DB operations
 
-    if not args.no_db_input or not args.no_db_output:
-        if DB_AVAILABLE and args.db_password: # Only try to connect if relevant flags are set and psycopg2 is there
-            conn = get_db_connection(args.db_host, args.db_port, args.db_user, args.db_password, args.db_name)
-        elif not DB_AVAILABLE:
+    if not args.no_db_input or not args.no_db_output: # If any DB operation is intended
+        if DB_AVAILABLE:
+            # Resolve DB parameters: CLI > .env > default
+            db_host = args.db_host or os.getenv('DB_HOST', 'localhost')
+            db_port_str = os.getenv('DB_PORT', '5432') # Default from .env or hardcoded
+            if args.db_port is not None: # CLI overrides .env
+                db_port_str = str(args.db_port)
+            try:
+                db_port = int(db_port_str)
+            except ValueError:
+                print(f"Warning: Invalid DB_PORT '{db_port_str}'. Using default 5432.")
+                db_port = 5432
+
+            db_user = args.db_user or os.getenv('DB_USER', 'postgres')
+            db_name = args.db_name or os.getenv('DB_NAME', 'crypto_data')
+            resolved_db_password = args.db_password or os.getenv('DB_PASSWORD')
+
+            if not resolved_db_password:
+                print("Warning: Database password not found via CLI (--db_password) or .env (DB_PASSWORD). DB operations might fail if password is required.")
+                # conn will remain None if password is required and not found by get_db_connection
+
+            if resolved_db_password: # Attempt connection only if password was found
+                conn = get_db_connection(db_host, db_port, db_user, resolved_db_password, db_name)
+            else:
+                # If no password, and DB ops are intended, get_db_connection might fail or try default pgpass, etc.
+                # For this script, if password is required by DB, connection will likely fail if not provided.
+                # We'll let get_db_connection handle the None password if it can, or fail.
+                # The primary check is that if DB is used, password *should* be present.
+                 print("Skipping DB connection attempt as password was not resolved.")
+
+
+        elif not DB_AVAILABLE: # psycopg2 not installed
              print("DB operations requested but psycopg2 is not installed. Skipping DB operations.")
-        # If password not provided, warning already printed. Connection will be None.
 
     # Load data
     ohlcv_df, asset_id_from_load = load_data(args, conn)

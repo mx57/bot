@@ -13,15 +13,16 @@ The project is structured into the following main modules:
 *   **Data Collection (`data_collection/`)**: Responsible for gathering data from various sources. Currently supports:
     *   CoinGecko API for historical price data.
     *   Binance API for historical OHLCV (Open, High, Low, Close, Volume) kline data.
-    The `fetch_data.py` script uses command-line arguments to specify the data source, asset identifiers, date ranges, and output options (database and/or JSON).
+    The `fetch_data.py` script uses command-line arguments and environment variables (via an `.env` file) to specify the data source, asset identifiers, date ranges, API keys, database credentials, and output options.
 
 *   **Analysis Modules (`analysis_modules/`)**: Contains scripts for data analysis. Currently includes:
-    *   `technical_analyzer.py`: Calculates a suite of common technical indicators from price data. Data can be loaded from the database or a JSON file, and results can be saved back to the database (long format) or a JSON file (wide format).
+    *   `technical_analyzer.py`: Calculates a suite of common technical indicators from price data. Data can be loaded from the database or a JSON file, and results can be saved back to the database (long format) or a JSON file (wide format). Configuration is managed via CLI arguments and environment variables.
 
 *   **AI Core (`ai_core/`)**: (Future Scope) Houses the machine learning models for price prediction, asset correlation, and risk/reward ranking.
 *   **API (`api/`)**: (Future Scope) Provides a REST API for interacting with the system and integrating with external tools or trading bots.
 *   **UI (`ui/`)**: (Future Scope) Will contain the web interface for visualizing data and interacting with the screener.
 *   **Database (`docs/database_setup.md`, `sql/schema.sql`)**: PostgreSQL with TimescaleDB extension is used for data storage. Setup instructions and schema are provided.
+*   **Common Utilities (`common/`)**: Contains shared utility modules, such as `db_utils.py` for database connection handling.
 
 ## Getting Started
 
@@ -40,6 +41,7 @@ The `requirements.txt` file manages all Python dependencies. Key libraries inclu
 *   `numpy`: For numerical operations (often a pandas dependency).
 *   `ta`: For calculating technical indicators.
 *   `psycopg2-binary`: For PostgreSQL database interaction.
+*   `python-dotenv`: For loading environment variables from an `.env` file.
 
 ### Setup and Installation
 
@@ -60,19 +62,39 @@ The `requirements.txt` file manages all Python dependencies. Key libraries inclu
     pip install -r requirements.txt
     ```
 
+### Configuration
+
+Sensitive information such as database credentials and API keys are managed using environment variables, typically loaded from an `.env` file located in the project root (`crypto_screener_ai/.env`).
+
+**Setup:**
+
+1.  **Create your `.env` file:** Copy the example file to `.env`:
+    ```bash
+    cp .env.example .env
+    ```
+2.  **Edit `.env`:** Open the `.env` file and fill in your actual database connection details (DB_HOST, DB_PORT, DB_USER, DB_PASSWORD, DB_NAME) and any API keys (e.g., BINANCE_API_KEY, BINANCE_API_SECRET) you intend to use.
+
+The `.env` file is listed in `.gitignore` and should **not** be committed to your version control system.
+
+**Credential Precedence:**
+The scripts will prioritize credentials in the following order:
+1.  Command-line arguments (if provided for a specific parameter).
+2.  Environment variables (loaded from your `.env` file).
+3.  Default values specified in the scripts (e.g., for `DB_HOST='localhost'`, `DB_PORT=5432`. Note: Passwords and secret keys generally do not have hardcoded defaults and must be provided via CLI or `.env` if the related service is used).
+
 ### Database Integration
 
-This project now supports PostgreSQL with the TimescaleDB extension for robust data storage and time-series analysis.
+This project now supports PostgreSQL with the TimescaleDB extension for robust data storage and time-series analysis. Connection parameters are configured via CLI arguments or an `.env` file.
 
 #### Database Setup
 
 1.  **Environment Setup**: For detailed instructions on setting up a local PostgreSQL + TimescaleDB instance using Docker, please refer to the [Database Setup Guide](docs/database_setup.md).
-2.  **Schema Initialization**: Once your database is running and the TimescaleDB extension is enabled (as per the setup guide), apply the schema by executing the commands in [sql/schema.sql](sql/schema.sql) against your target database (e.g., `crypto_data`). You can use `psql` or a database management tool for this.
+2.  **Schema Initialization**: Once your database is running and the TimescaleDB extension is enabled (as per the setup guide), apply the schema by executing the commands in [sql/schema.sql](sql/schema.sql) against your target database.
     ```bash
     # Example using psql, assuming your database is named 'crypto_data' and user 'postgres'
     # psql -h localhost -U postgres -d crypto_data -f sql/schema.sql
     ```
-    *(You might be prompted for the password for the `postgres` user)*
+    *(You might be prompted for the password for the `postgres` user if not set in environment variables like PGPASSWORD)*
 
 ### Using the Data Collection Script (`fetch_data.py`)
 
@@ -82,37 +104,40 @@ The `fetch_data.py` script in the `data_collection` directory allows you to fetc
 *   `source`: `coingecko` or `binance`.
 *   CoinGecko specific: `--coin_id`, `--vs_currency`, `--days`.
 *   Binance specific: `--symbol`, `--interval`, `--start_date`, `--end_date`, `--limit`.
-*   Database connection: `--db_host`, `--db_port`, `--db_user`, `--db_password`, `--db_name`.
+*   Binance API: `--binance_api_key`, `--binance_api_secret` (optional, overrides `.env`).
+*   Database connection: `--db_host`, `--db_port`, `--db_user`, `--db_password`, `--db_name` (optional, overrides `.env`).
 *   Output control:
     *   `--save_json`: To also save the fetched data to a JSON file.
     *   `--no_db`: To disable saving data to the database.
-    *   `--output_dir`: Specifies directory for JSON files (default: `crypto_screener_ai/data_collection/`).
+    *   `--output_dir`: Specifies directory for JSON files.
 
 **Examples:**
 
-*   **Fetching from CoinGecko and saving to JSON only:**
+*   **Fetching from CoinGecko (JSON only, no DB interaction):**
     ```bash
-    python data_collection/fetch_data.py coingecko --coin_id bitcoin --vs_currency usd --days 7 --save_json --no_db --output_dir data_collection_output/
+    python data_collection/fetch_data.py coingecko --coin_id bitcoin --vs_currency usd --days 7 --save_json --no_db --output_dir path/to/your_json_output_dir/
     ```
 
-*   **Fetching from Binance and saving to Database (and optionally JSON):**
+*   **Fetching from Binance and saving to Database (credentials from `.env` or CLI):**
     ```bash
-    # Ensure API keys are set in fetch_data.py for Binance
-    python data_collection/fetch_data.py binance --symbol BTCUSDT --interval 1h --limit 100 --db_host localhost --db_user youruser --db_password yourpass --db_name crypto_data
+    # Example assuming .env is configured or using CLI overrides:
+    python data_collection/fetch_data.py binance --symbol BTCUSDT --interval 1h --limit 100
+    # To specify DB credentials via CLI (overrides .env):
+    python data_collection/fetch_data.py binance --symbol BTCUSDT --interval 1h --limit 100 --db_host myhost --db_user myuser --db_password mypass --db_name mydb
     # To also save a JSON copy:
-    python data_collection/fetch_data.py binance --symbol BTCUSDT --interval 1h --limit 100 --db_host localhost --db_user youruser --db_password yourpass --db_name crypto_data --save_json --output_dir data_collection_output/
+    python data_collection/fetch_data.py binance --symbol BTCUSDT --interval 1h --limit 100 --save_json --output_dir path/to/json/
     ```
-    **Note on Binance API Keys:** For the Binance data source, replace placeholder API keys in `data_collection/fetch_data.py` with your actual credentials.
+    **Note on API Keys:** For Binance, ensure `BINANCE_API_KEY` and `BINANCE_API_SECRET` are set in your `.env` file or passed via CLI if you are not using the script's fallback placeholders (which are not functional).
 
 ### Using the Technical Analyzer Script (`technical_analyzer.py`)
 
 The `technical_analyzer.py` script in `analysis_modules` loads price data (from DB or JSON), calculates a range of technical indicators, and saves them (to DB and/or JSON).
 
 **Key CLI Arguments:**
-*   `--symbol`: Asset symbol for DB operations (required if using DB input without `--no_db_input`, or for DB output).
-*   `--input_json_file`: Path to load data from JSON.
-*   `--no_db_input`: If set, data must be from `--input_json_file`.
-*   Database connection: `--db_host`, `--db_port`, `--db_user`, `--db_password`, `--db_name`.
+*   `--symbol`: Asset symbol for DB operations (e.g., 'BTCUSDT' or 'bitcoin'). Required if using DB for input or output.
+*   `--input_json_file`: Path to load data from JSON. If used with DB input, this acts as a fallback.
+*   `--no_db_input`: If set, data must be loaded from `--input_json_file`.
+*   Database connection: `--db_host`, `--db_port`, `--db_user`, `--db_password`, `--db_name` (optional, overrides `.env`).
 *   Data filtering (for DB source): `--start_date`, `--end_date`, `--limit`.
 *   `--output_json_file`: Path to save output with indicators as JSON.
 *   `--no_db_output`: To disable saving indicators to the database.
@@ -134,15 +159,15 @@ While the script can process data containing only 'close' prices (e.g., from Coi
 
 *   **Loading from JSON, saving indicators to JSON (DB disabled):**
     ```bash
-    python analysis_modules/technical_analyzer.py --input_json_file data_collection_output/bitcoin_usd_7_days_coingecko_data.json --output_json_file analysis_output/bitcoin_indicators.json --no_db_input --no_db_output
+    python analysis_modules/technical_analyzer.py --input_json_file path/to/your_input_data.json --output_json_file path/to_analysis_output/indicators.json --no_db_input --no_db_output
     ```
 
-*   **Loading from DB, calculating indicators, saving back to DB (and optionally JSON):**
+*   **Loading from DB, calculating indicators, saving back to DB (credentials from `.env` or CLI, also saving JSON):**
     ```bash
-    # Calculates indicators for BTCUSDT using last 1000 records from DB, saves indicators to DB
-    python analysis_modules/technical_analyzer.py --symbol BTCUSDT --db_host localhost --db_user youruser --db_password yourpass --db_name crypto_data --limit 1000
-    # Same as above, but also saves a JSON output
-    python analysis_modules/technical_analyzer.py --symbol BTCUSDT --db_host localhost --db_user youruser --db_password yourpass --db_name crypto_data --limit 1000 --output_json_file analysis_output/btcusdt_indicators.json
+    # Example assuming .env is configured or using CLI overrides for DB:
+    python analysis_modules/technical_analyzer.py --symbol BTCUSDT --limit 1000 --output_json_file path/to_analysis_output/btcusdt_indicators.json
+    # To specify DB credentials via CLI:
+    python analysis_modules/technical_analyzer.py --symbol BTCUSDT --limit 1000 --db_host myhost --db_user myuser --db_password mypass --db_name mydb --output_json_file path/to_analysis_output/btcusdt_indicators.json
     ```
 
 ## Future Development
