@@ -94,6 +94,33 @@ SELECT create_hypertable('price_and_indicators', 'time', if_not_exists => TRUE, 
 CREATE INDEX IF NOT EXISTS idx_price_indicators_asset_id_time ON price_and_indicators (asset_id, time DESC);
 */
 
+-- Table for storing fundamental asset data
+CREATE TABLE IF NOT EXISTS asset_fundamentals (
+    asset_id INTEGER PRIMARY KEY,
+    description TEXT,
+    categories TEXT[],          -- Array of TEXT for storing categories
+    homepage_url TEXT,
+    blockchain_site_urls TEXT[], -- Array of TEXT for block explorer links, etc.
+    twitter_handle TEXT,
+    facebook_username TEXT,
+    telegram_channel_identifier TEXT,
+    subreddit_url TEXT,
+    market_cap_usd BIGINT,
+    circulating_supply DOUBLE PRECISION,
+    total_supply DOUBLE PRECISION,
+    max_supply DOUBLE PRECISION,
+    last_updated_api TIMESTAMPTZ, -- Timestamp from the API source for this data
+    fetched_at TIMESTAMPTZ DEFAULT CURRENT_TIMESTAMP, -- When we fetched/updated this record
+    CONSTRAINT fk_asset_fundamentals_asset
+        FOREIGN KEY(asset_id)
+        REFERENCES assets(asset_id)
+        ON DELETE CASCADE -- If an asset is deleted, its fundamental data is also deleted
+);
+
+-- Optional: Add indexes for frequently queried fundamental data if necessary later
+-- Example: CREATE INDEX IF NOT EXISTS idx_market_cap_usd ON asset_fundamentals (market_cap_usd DESC);
+
+
 -- Consider adding tables for:
 -- - News/Sentiment Data
 -- - On-chain Metrics

@@ -39,11 +39,10 @@ def get_db_connection(db_host=None, db_port=None, db_user=None, db_password=None
     # db_password = db_password # Password should ideally be passed directly or via secure means
     # db_name = db_name or os.getenv('DB_NAME', 'crypto_data')
 
-    if not all([db_host, db_port, db_user, db_password, db_name]):
-        print("Error: Database connection parameters (host, port, user, password, name) must all be provided.")
-        # This check might be too strict if some parameters have valid defaults elsewhere or from env.
-        # However, aligning with current script requiring explicit password.
-        return None
+    # The calling scripts (fetch_data.py, technical_analyzer.py) are responsible for
+    # resolving parameters from CLI > .env > defaults before calling this function.
+    # Password being None is handled by the calling script's logic if DB operations are intended.
+    # Other parameters will have defaults if not specified.
 
     try:
         conn = psycopg2.connect(
