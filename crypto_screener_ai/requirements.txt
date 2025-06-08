@@ -3,3 +3,4 @@ python-binance
 numpy
 pandas
 ta
+psycopg2-binary

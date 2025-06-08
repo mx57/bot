@@ -1,0 +1,2314 @@
+[
+    {
+        "timestamp": "2025-06-07T12:36:05.851000+00:00",
+        "close": 151.86710572891832,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-07T12:41:34.225000+00:00",
+        "close": 151.93112670647346,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-07T12:45:23.211000+00:00",
+        "close": 152.17319037572778,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-07T12:50:47.570000+00:00",
+        "close": 152.22646417460984,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-07T12:55:49.346000+00:00",
+        "close": 152.29311547007373,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-07T13:01:02.792000+00:00",
+        "close": 152.31612134546037,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-07T13:05:21.828000+00:00",
+        "close": 152.2843757230685,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-07T13:10:13.022000+00:00",
+        "close": 152.15444435856224,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-07T13:15:56.998000+00:00",
+        "close": 152.14079397338287,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-07T13:20:13.955000+00:00",
+        "close": 152.15759127718897,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-07T13:25:52.831000+00:00",
+        "close": 152.18025825771315,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-07T13:30:49.020000+00:00",
+        "close": 152.10749871911696,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-07T13:36:56.087000+00:00",
+        "close": 152.14765685892726,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-07T13:40:44.121000+00:00",
+        "close": 152.1862458600141,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-07T13:46:04.105000+00:00",
+        "close": 152.21383250584535,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-07T13:50:54.703000+00:00",
+        "close": 152.24227561613156,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-07T13:56:39.236000+00:00",
+        "close": 152.25623590094216,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-07T14:01:43.055000+00:00",
+        "close": 152.22776664616666,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-07T14:05:17.135000+00:00",
+        "close": 152.20590932072068,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-07T14:10:27.106000+00:00",
+        "close": 151.98503765144088,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-07T14:16:02.370000+00:00",
+        "close": 151.97677798920589,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-07T14:20:06.246000+00:00",
+        "close": 151.8841978831306,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-07T14:25:16.854000+00:00",
+        "close": 151.8293332360302,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-07T14:30:04.285000+00:00",
+        "close": 151.75434487378826,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-07T14:35:46.649000+00:00",
+        "close": 151.78378134405875,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-07T14:40:28.195000+00:00",
+        "close": 151.8385267981084,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-07T14:46:23.211000+00:00",
+        "close": 151.83624286726544,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-07T14:51:29.634000+00:00",
+        "close": 151.77976733428807,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-07T14:55:09.816000+00:00",
+        "close": 151.66505625414854,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-07T15:00:35.317000+00:00",
+        "close": 151.62554909170925,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-07T15:06:50.733000+00:00",
+        "close": 151.58007474384002,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-07T15:10:49.781000+00:00",
+        "close": 151.55696369400619,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-07T15:16:10.049000+00:00",
+        "close": 151.49219501917486,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-07T15:20:56.917000+00:00",
+        "close": 151.4341794177924,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-07T15:25:48.105000+00:00",
+        "close": 151.42703580097626,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-07T15:31:19.314000+00:00",
+        "close": 151.4317431289084,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-07T15:36:18.921000+00:00",
+        "close": 151.3336895140904,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-07T15:40:36.045000+00:00",
+        "close": 151.32783985007202,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-07T15:46:16.401000+00:00",
+        "close": 151.10735878916083,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-07T15:50:36.232000+00:00",
+        "close": 151.2074494954925,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-07T15:56:30.613000+00:00",
+        "close": 151.16148793970854,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-07T16:00:10.079000+00:00",
+        "close": 151.14279176161915,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-07T16:05:26.266000+00:00",
+        "close": 151.172864101479,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-07T16:10:47.240000+00:00",
+        "close": 151.25232984015247,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-07T16:15:50.290000+00:00",
+        "close": 151.34890488581723,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-07T16:21:34.349000+00:00",
+        "close": 151.33425774353904,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-07T16:25:20.216000+00:00",
+        "close": 151.32936470108962,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-07T16:30:52.430000+00:00",
+        "close": 151.25148757617325,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-07T16:36:08.487000+00:00",
+        "close": 151.17728247798078,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-07T16:40:02.331000+00:00",
+        "close": 151.03843644507745,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-07T16:45:48.197000+00:00",
+        "close": 150.95625282963945,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-07T16:51:02.572000+00:00",
+        "close": 150.927652136104,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-07T16:55:37.800000+00:00",
+        "close": 150.88676542578492,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-07T17:01:37.378000+00:00",
+        "close": 150.8923137166288,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-07T17:06:00.044000+00:00",
+        "close": 151.01774692884334,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-07T17:11:16.491000+00:00",
+        "close": 151.05129923537774,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-07T17:15:28.209000+00:00",
+        "close": 151.10723834520385,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-07T17:20:44.042000+00:00",
+        "close": 151.10103781163085,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-07T17:26:37.425000+00:00",
+        "close": 151.16197432254066,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-07T17:30:03.550000+00:00",
+        "close": 151.1859528919922,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-07T17:35:58.971000+00:00",
+        "close": 151.23711044722359,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-07T17:40:26.935000+00:00",
+        "close": 151.1967099898562,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-07T17:46:35.855000+00:00",
+        "close": 151.15083776822212,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-07T17:50:13.453000+00:00",
+        "close": 151.1176306396766,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-07T17:56:11.270000+00:00",
+        "close": 150.88293227070818,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-07T18:00:19.003000+00:00",
+        "close": 150.80283275543565,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-07T18:05:15.992000+00:00",
+        "close": 150.72402291435642,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-07T18:09:59.562000+00:00",
+        "close": 150.76389616992827,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-07T18:15:19.668000+00:00",
+        "close": 150.67542657140248,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-07T18:20:55.628000+00:00",
+        "close": 150.71264334197286,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-07T18:26:20.140000+00:00",
+        "close": 150.8634220590639,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-07T18:30:05.233000+00:00",
+        "close": 150.91617924535262,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-07T18:35:43.318000+00:00",
+        "close": 150.9370689558829,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-07T18:40:31.810000+00:00",
+        "close": 150.92878767650052,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-07T18:46:32.075000+00:00",
+        "close": 150.78489570135366,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-07T18:50:23.735000+00:00",
+        "close": 150.72668733875588,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-07T18:55:13.835000+00:00",
+        "close": 150.67776895765678,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-07T19:01:09.162000+00:00",
+        "close": 150.6442840857038,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-07T19:05:27.153000+00:00",
+        "close": 150.70051170625484,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-07T19:10:30.051000+00:00",
+        "close": 150.8660066931362,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-07T19:15:44.027000+00:00",
+        "close": 150.88332953716778,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-07T19:21:17.827000+00:00",
+        "close": 150.91353720579508,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-07T19:26:34.820000+00:00",
+        "close": 150.95317651512104,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-07T19:31:26.456000+00:00",
+        "close": 151.04361525611537,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-07T19:36:04.859000+00:00",
+        "close": 151.01002660338276,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-07T19:41:30.068000+00:00",
+        "close": 150.99609096482888,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-07T19:46:07.540000+00:00",
+        "close": 150.96450631669947,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-07T19:51:40.491000+00:00",
+        "close": 150.88087119046583,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-07T19:55:25.863000+00:00",
+        "close": 150.81467063765604,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-07T20:00:38.976000+00:00",
+        "close": 150.66680459207157,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-07T20:06:01.887000+00:00",
+        "close": 150.6987817227513,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-07T20:11:05.967000+00:00",
+        "close": 150.7142683621484,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-07T20:16:25.620000+00:00",
+        "close": 150.77131006350064,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-07T20:21:30.948000+00:00",
+        "close": 150.8202872798565,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-07T20:25:24.747000+00:00",
+        "close": 150.75382208927692,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-07T20:30:43.496000+00:00",
+        "close": 150.76380728513956,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-07T20:36:41.828000+00:00",
+        "close": 150.7433863465765,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-07T20:39:56.564000+00:00",
+        "close": 150.7382696650009,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-07T20:45:59.473000+00:00",
+        "close": 150.67433204403986,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-07T20:50:08.019000+00:00",
+        "close": 150.67067922795277,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-07T20:55:11.155000+00:00",
+        "close": 150.70340372552934,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-07T21:01:25.945000+00:00",
+        "close": 150.7316951604977,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-07T21:06:30.592000+00:00",
+        "close": 150.9789992114864,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-07T21:09:56.608000+00:00",
+        "close": 151.01127367839527,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-07T21:15:19.896000+00:00",
+        "close": 151.0577184077467,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-07T21:20:52.592000+00:00",
+        "close": 151.06541070976124,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-07T21:25:54.032000+00:00",
+        "close": 151.0780338527355,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-07T21:31:03.336000+00:00",
+        "close": 151.12460342142847,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-07T21:35:41.831000+00:00",
+        "close": 151.1669848116983,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-07T21:40:20.550000+00:00",
+        "close": 151.2063367049753,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-07T21:46:07.252000+00:00",
+        "close": 151.29510684986678,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-07T21:50:13.734000+00:00",
+        "close": 151.29837209933717,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-07T21:55:28.995000+00:00",
+        "close": 151.2530964022269,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-07T22:00:45.242000+00:00",
+        "close": 151.24684090516604,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-07T22:08:11.453000+00:00",
+        "close": 151.25143015187106,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-07T22:11:29.655000+00:00",
+        "close": 151.13838219612254,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-07T22:16:30.274000+00:00",
+        "close": 151.08727923284366,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-07T22:21:41.700000+00:00",
+        "close": 151.07349141386555,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-07T22:26:32.835000+00:00",
+        "close": 151.06222886514905,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-07T22:31:32.326000+00:00",
+        "close": 151.05035371896628,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-07T22:36:46.467000+00:00",
+        "close": 151.16321070096447,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-07T22:41:06.220000+00:00",
+        "close": 151.1955623075125,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-07T22:45:37.095000+00:00",
+        "close": 151.21586940881446,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-07T22:50:40.716000+00:00",
+        "close": 151.2208127842399,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-07T22:55:42.663000+00:00",
+        "close": 151.24559822338466,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-07T23:00:43.772000+00:00",
+        "close": 151.22262846965225,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-07T23:06:15.674000+00:00",
+        "close": 151.1419106508658,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-07T23:11:13.312000+00:00",
+        "close": 151.05558014330236,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-07T23:16:09.527000+00:00",
+        "close": 150.94548191508034,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-07T23:20:37.810000+00:00",
+        "close": 150.8755905775387,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-07T23:25:58.633000+00:00",
+        "close": 150.7078179133663,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-07T23:30:58.999000+00:00",
+        "close": 150.6694818969983,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-07T23:35:18.356000+00:00",
+        "close": 150.6429187248015,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-07T23:40:20.094000+00:00",
+        "close": 150.3536561990793,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-07T23:45:49.808000+00:00",
+        "close": 150.11428767989008,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-07T23:50:10.287000+00:00",
+        "close": 150.07990223647926,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-07T23:55:29.527000+00:00",
+        "close": 150.07536034230216,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-08T00:00:26.851000+00:00",
+        "close": 150.0641688812615,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-08T00:06:10.927000+00:00",
+        "close": 150.01434119151227,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-08T00:11:19.331000+00:00",
+        "close": 149.96912066640857,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-08T00:16:28.051000+00:00",
+        "close": 149.77535986944739,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-08T00:21:36.339000+00:00",
+        "close": 149.72002723123714,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-08T00:25:11.282000+00:00",
+        "close": 149.69493731565896,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-08T00:30:19.871000+00:00",
+        "close": 149.66562121499538,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-08T00:36:11.939000+00:00",
+        "close": 149.68198879122806,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-08T00:40:27.558000+00:00",
+        "close": 149.71861120996422,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-08T00:45:29.277000+00:00",
+        "close": 149.6934192575645,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-08T00:50:15.510000+00:00",
+        "close": 149.61781617453897,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-08T00:55:48.462000+00:00",
+        "close": 149.5577090064527,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-08T01:01:03.720000+00:00",
+        "close": 149.54997025185241,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-08T01:05:36.512000+00:00",
+        "close": 149.5171230576611,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-08T01:11:04.268000+00:00",
+        "close": 149.41762806219654,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-08T01:16:21.665000+00:00",
+        "close": 149.41646993633185,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-08T01:21:21.015000+00:00",
+        "close": 149.4624402420525,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-08T01:26:29.693000+00:00",
+        "close": 149.55757722898545,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-08T01:30:16.892000+00:00",
+        "close": 149.58099648461112,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-08T01:36:16.889000+00:00",
+        "close": 149.64860575257228,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-08T01:41:03.619000+00:00",
+        "close": 149.71573844385827,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-08T01:46:09.813000+00:00",
+        "close": 149.8407511383943,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-08T01:50:12.736000+00:00",
+        "close": 149.9206888424424,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-08T01:55:42.411000+00:00",
+        "close": 150.06684077636334,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-08T02:01:09.386000+00:00",
+        "close": 150.1171847374518,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-08T02:06:05.225000+00:00",
+        "close": 150.07111791044352,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-08T02:11:24.427000+00:00",
+        "close": 150.01903029376294,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-08T02:16:22.750000+00:00",
+        "close": 149.99098176503006,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-08T02:20:14.782000+00:00",
+        "close": 150.00783209217582,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-08T02:25:25.033000+00:00",
+        "close": 149.97756918835447,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-08T02:30:42.093000+00:00",
+        "close": 150.0128721351621,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-08T02:36:20.225000+00:00",
+        "close": 150.02592453645102,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-08T02:40:47.576000+00:00",
+        "close": 150.0501028911006,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-08T02:45:25.887000+00:00",
+        "close": 150.09003535910634,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-08T02:50:44.380000+00:00",
+        "close": 150.13437475628908,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-08T02:55:10.292000+00:00",
+        "close": 150.0585071423342,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-08T03:00:48.411000+00:00",
+        "close": 150.01980407123122,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-08T03:06:10.323000+00:00",
+        "close": 149.9192423070658,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-08T03:11:23.675000+00:00",
+        "close": 149.86766636734268,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-08T03:15:04.541000+00:00",
+        "close": 149.85913721500523,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-08T03:20:18.362000+00:00",
+        "close": 149.80182684101237,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-08T03:25:27.809000+00:00",
+        "close": 149.79212791080977,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-08T03:31:08.950000+00:00",
+        "close": 149.7846475444556,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-08T03:36:38.983000+00:00",
+        "close": 149.84314875047966,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-08T03:40:45.540000+00:00",
+        "close": 149.85811376184915,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-08T03:46:18.576000+00:00",
+        "close": 149.96991539416166,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-08T03:50:32.743000+00:00",
+        "close": 149.9772413392245,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-08T03:55:52.985000+00:00",
+        "close": 150.00041891143735,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-08T04:01:05.328000+00:00",
+        "close": 149.99306349511306,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-08T04:06:18.374000+00:00",
+        "close": 149.8982049038608,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-08T04:11:23.531000+00:00",
+        "close": 149.8621939423797,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-08T04:15:16.850000+00:00",
+        "close": 149.79813441399597,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-08T04:20:43.973000+00:00",
+        "close": 149.79123922923674,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-08T04:25:50.672000+00:00",
+        "close": 149.8246867843429,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-08T04:31:16.674000+00:00",
+        "close": 149.82136881047384,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-08T04:36:14.274000+00:00",
+        "close": 149.91503449872513,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-08T04:40:33.272000+00:00",
+        "close": 149.95759150556557,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-08T04:46:06.366000+00:00",
+        "close": 150.0405240063182,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-08T04:50:25.577000+00:00",
+        "close": 150.07815719738068,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-08T04:55:31.023000+00:00",
+        "close": 150.07892128119326,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-08T05:01:06.135000+00:00",
+        "close": 150.0970600993033,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-08T05:06:19.106000+00:00",
+        "close": 150.0279945281813,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-08T05:11:16.118000+00:00",
+        "close": 150.00483077609888,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-08T05:16:22.813000+00:00",
+        "close": 150.01677936234412,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-08T05:21:27.876000+00:00",
+        "close": 149.99175988570394,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-08T05:26:34.613000+00:00",
+        "close": 150.0198359730704,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-08T05:31:48.825000+00:00",
+        "close": 150.0575263834653,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-08T05:36:35.194000+00:00",
+        "close": 150.10389509975553,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-08T05:41:33.472000+00:00",
+        "close": 150.06096509563713,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-08T05:45:07.144000+00:00",
+        "close": 150.0308080150973,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-08T05:50:12.901000+00:00",
+        "close": 150.02147311775187,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-08T05:55:48.228000+00:00",
+        "close": 150.0085569685068,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-08T06:01:14.263000+00:00",
+        "close": 149.98703706567312,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-08T06:05:52.523000+00:00",
+        "close": 150.01232583242174,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-08T06:11:31.168000+00:00",
+        "close": 150.0158871820656,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-08T06:15:13.735000+00:00",
+        "close": 150.03845988740497,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-08T06:20:48.914000+00:00",
+        "close": 150.09390220437896,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-08T06:25:48.836000+00:00",
+        "close": 150.20481584813194,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-08T06:30:38.904000+00:00",
+        "close": 150.35970794077122,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-08T06:35:40.824000+00:00",
+        "close": 150.36347218785696,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-08T06:40:42.537000+00:00",
+        "close": 150.36423814952556,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-08T06:46:05.690000+00:00",
+        "close": 150.36446695518293,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-08T06:50:14.222000+00:00",
+        "close": 150.2960279889955,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-08T06:56:08.531000+00:00",
+        "close": 150.2431485881991,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-08T07:00:15.697000+00:00",
+        "close": 150.21000673565956,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-08T07:05:10.571000+00:00",
+        "close": 150.1970901832482,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-08T07:10:49.996000+00:00",
+        "close": 150.1989754604743,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-08T07:15:59.449000+00:00",
+        "close": 150.19602796476872,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-08T07:20:15.911000+00:00",
+        "close": 150.19518523035933,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-08T07:25:10.015000+00:00",
+        "close": 150.19678394685525,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-08T07:31:30.510000+00:00",
+        "close": 150.0512511784738,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-08T07:35:05.116000+00:00",
+        "close": 150.02198714079123,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-08T07:41:06.606000+00:00",
+        "close": 149.91788406403347,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-08T07:45:42.574000+00:00",
+        "close": 149.8460730509342,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-08T07:50:45.527000+00:00",
+        "close": 149.80569429532636,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-08T07:56:12.772000+00:00",
+        "close": 149.79233359918317,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-08T08:00:37.145000+00:00",
+        "close": 149.7485728307743,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-08T08:05:33.725000+00:00",
+        "close": 149.6169081766972,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-08T08:10:31.476000+00:00",
+        "close": 149.60868547837754,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-08T08:15:55.157000+00:00",
+        "close": 149.61183234977022,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-08T08:20:32.261000+00:00",
+        "close": 149.60311701215795,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-08T08:26:06.979000+00:00",
+        "close": 149.60175464936145,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-08T08:30:30.199000+00:00",
+        "close": 149.60933003015364,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-08T08:36:15.377000+00:00",
+        "close": 149.59651081818788,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-08T08:41:29.118000+00:00",
+        "close": 149.5477492867964,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-08T08:46:27.746000+00:00",
+        "close": 149.49114098057635,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-08T08:51:29.376000+00:00",
+        "close": 149.4888269564029,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-08T08:56:04.952000+00:00",
+        "close": 149.49164907287246,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-08T09:01:03.166000+00:00",
+        "close": 149.43303723427266,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-08T09:05:28.501000+00:00",
+        "close": 149.37875283200432,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-08T09:10:36.046000+00:00",
+        "close": 149.15035988002907,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-08T09:15:32.548000+00:00",
+        "close": 149.0114677529795,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-08T09:20:44.151000+00:00",
+        "close": 148.93797636576258,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-08T09:25:40.533000+00:00",
+        "close": 148.8459753379448,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-08T09:31:20.346000+00:00",
+        "close": 148.5543988702538,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-08T09:35:44.078000+00:00",
+        "close": 148.45204164302245,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-08T09:40:22.444000+00:00",
+        "close": 148.36592973714045,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-08T09:46:00.657000+00:00",
+        "close": 148.36762997589716,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-08T09:50:23.284000+00:00",
+        "close": 148.36695546090752,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-08T09:55:49.720000+00:00",
+        "close": 148.58778278099248,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-08T10:00:55.738000+00:00",
+        "close": 148.6209904893375,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-08T10:06:18.217000+00:00",
+        "close": 148.61219438022187,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-08T10:11:17.292000+00:00",
+        "close": 148.59945385054854,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-08T10:15:12.089000+00:00",
+        "close": 148.39555909892943,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-08T10:20:17.948000+00:00",
+        "close": 148.47630210209385,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-08T10:25:11.812000+00:00",
+        "close": 148.4910644315451,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-08T10:30:10.326000+00:00",
+        "close": 148.47935864104755,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-08T10:35:11.384000+00:00",
+        "close": 148.52983976796153,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-08T10:40:23.265000+00:00",
+        "close": 148.57742064177089,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-08T10:46:13.467000+00:00",
+        "close": 148.74823565180583,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-08T10:50:19.761000+00:00",
+        "close": 148.7897739253971,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-08T10:55:14.767000+00:00",
+        "close": 148.85691539748737,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-08T11:00:56.333000+00:00",
+        "close": 148.9460975760673,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-08T11:06:10.913000+00:00",
+        "close": 149.02318913732634,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-08T11:11:23.212000+00:00",
+        "close": 149.05564428401348,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-08T11:16:29.295000+00:00",
+        "close": 149.0172239414095,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-08T11:20:03.961000+00:00",
+        "close": 149.04164569484573,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-08T11:25:22.848000+00:00",
+        "close": 149.11649935927264,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-08T11:30:44.560000+00:00",
+        "close": 149.18648154410965,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-08T11:35:02.259000+00:00",
+        "close": 149.21614192944813,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-08T11:41:26.130000+00:00",
+        "close": 149.31569043561487,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-08T11:45:33.097000+00:00",
+        "close": 149.32815457666152,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-08T11:50:34.439000+00:00",
+        "close": 149.36695433193478,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-08T11:55:38.037000+00:00",
+        "close": 149.3928219598221,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-08T12:01:07.216000+00:00",
+        "close": 149.4490521063417,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-08T12:06:14.047000+00:00",
+        "close": 149.58713428044595,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-08T12:11:22.508000+00:00",
+        "close": 149.56497619483824,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-08T12:16:38.206000+00:00",
+        "close": 149.61085450779012,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-08T12:20:38.648000+00:00",
+        "close": 149.63766769956308,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-08T12:25:47.857000+00:00",
+        "close": 149.6260764202198,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-08T12:30:45.815000+00:00",
+        "close": 149.5527057137472,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    },
+    {
+        "timestamp": "2025-06-08T12:32:58+00:00",
+        "close": 149.52227846504448,
+        "open": null,
+        "high": null,
+        "low": null,
+        "volume": null
+    }
+]
