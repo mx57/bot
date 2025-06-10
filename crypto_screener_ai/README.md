@@ -19,7 +19,10 @@ The project is structured into the following main modules:
     *   `technical_analyzer.py`: Calculates a suite of common technical indicators from price data. Data can be loaded from the database or a JSON file, and results can be saved back to the database (long format) or a JSON file (wide format). Configuration is managed via CLI arguments and environment variables.
     *   `fundamental_analyzer.py`: Fetches and stores detailed fundamental data for cryptocurrencies (e.g., market cap, supply, description, social links) from sources like CoinGecko. Configuration is managed via CLI arguments and environment variables.
 
-*   **AI Core (`ai_core/`)**: (Future Scope) Houses the machine learning models for price prediction, asset correlation, and risk/reward ranking.
+*   **AI Core (`ai_core/`)**:
+    *   **Prediction (`ai_core/prediction/`)**: Houses machine learning models for price prediction.
+        *   `price_predictor.py`: Loads historical price and indicator data, preprocesses it for time-series forecasting, and defines/trains a basic LSTM model for price prediction.
+
 *   **API (`api/`)**: (Future Scope) Provides a REST API for interacting with the system and integrating with external tools or trading bots.
 *   **UI (`ui/`)**: (Future Scope) Will contain the web interface for visualizing data and interacting with the screener.
 *   **Database (`docs/database_setup.md`, `sql/schema.sql`)**: PostgreSQL with TimescaleDB extension is used for data storage. Setup instructions and schema are provided.
@@ -43,6 +46,8 @@ The `requirements.txt` file manages all Python dependencies. Key libraries inclu
 *   `ta`: For calculating technical indicators.
 *   `psycopg2-binary`: For PostgreSQL database interaction.
 *   `python-dotenv`: For loading environment variables from an `.env` file.
+*   `scikit-learn`: For machine learning utilities (e.g., data scaling).
+*   `tensorflow` (or `tensorflow-cpu`): For building and training deep learning models (LSTM).
 
 ### Configuration
 
@@ -103,7 +108,9 @@ The database schema (defined in `sql/schema.sql`) includes the following key tab
     ```
     *(You might be prompted for the password for the `postgres` user if not set in environment variables like PGPASSWORD or via your local PostgreSQL configuration.)*
 
-### Using the Data Collection Script (`fetch_data.py`)
+### Using the Scripts
+
+#### Data Collection Script (`fetch_data.py`)
 
 The `fetch_data.py` script in the `data_collection` directory allows you to fetch data and store it in the database and/or a JSON file.
 
@@ -119,87 +126,92 @@ The `fetch_data.py` script in the `data_collection` directory allows you to fetc
     *   `--output_dir`: Specifies directory for JSON files.
 
 **Examples:**
-
-*   **Fetching from CoinGecko (JSON only, no DB interaction):**
+*   See the script's help message for detailed examples: `python data_collection/fetch_data.py --help`
+*   **Fetching from CoinGecko (JSON only):**
     ```bash
     python data_collection/fetch_data.py coingecko --coin_id bitcoin --vs_currency usd --days 7 --save_json --no_db --output_dir path/to/your_json_output_dir/
     ```
-
-*   **Fetching from Binance and saving to Database (credentials from `.env` or CLI):**
+*   **Fetching from Binance and saving to Database:**
     ```bash
-    # Example assuming .env is configured for DB and Binance API keys:
+    # Assumes .env is configured for DB and Binance API keys
     python data_collection/fetch_data.py binance --symbol BTCUSDT --interval 1h --limit 100
-    # To specify DB credentials and Binance keys via CLI (overrides .env):
-    python data_collection/fetch_data.py binance --symbol BTCUSDT --interval 1h --limit 100 \
-        --binance_api_key YOUR_KEY --binance_api_secret YOUR_SECRET \
-        --db_host myhost --db_user myuser --db_password mypass --db_name mydb
     ```
-    **Note on API Keys:** For Binance, ensure `BINANCE_API_KEY` and `BINANCE_API_SECRET` are set in your `.env` file or passed via CLI. The script falls back to non-functional placeholders if keys are not found.
+    **Note on API Keys:** For Binance, ensure `BINANCE_API_KEY` and `BINANCE_API_SECRET` are set in your `.env` file or passed via CLI.
 
-### Using the Technical Analyzer Script (`technical_analyzer.py`)
+#### Technical Analyzer Script (`technical_analyzer.py`)
 
-The `technical_analyzer.py` script in `analysis_modules` loads price data (from DB or JSON), calculates a range of technical indicators, and saves them (to DB and/or JSON).
+Loads price data (from DB or JSON), calculates a range of technical indicators, and saves them (to DB and/or JSON).
 
 **Key CLI Arguments:**
-*   `--symbol <asset_symbol>`: Asset symbol for DB operations (e.g., 'BTCUSDT' or 'bitcoin'). Required if using DB for input or output unless `--input_json_file` and `--no_db_input` are solely used.
-*   `--input_json_file <path>`: Path to load data from JSON. Can act as a fallback if DB input fails.
+*   `--symbol <asset_symbol>`: Asset symbol for DB operations.
+*   `--input_json_file <path>`: Path to load data from JSON.
 *   `--no_db_input`: If set, data must be loaded from `--input_json_file`.
-*   Database connection: `--db_host`, `--db_port`, `--db_user`, `--db_password`, `--db_name` (optional, overrides `.env` and script defaults).
-*   Data filtering (for DB source): `--start_date`, `--end_date`, `--limit`.
-*   `--output_json_file <path>`: Path to save output with indicators as JSON.
-*   `--no_db_output`: To disable saving indicators to the database. (If DB operations are intended, relevant DB credentials must be available via CLI or `.env`).
+*   Database connection args (optional, override `.env`).
+*   Data filtering for DB: `--start_date`, `--end_date`, `--limit`.
+*   `--output_json_file <path>`: Path to save output as JSON.
+*   `--no_db_output`: Disables saving indicators to DB. (If DB operations are intended, relevant DB credentials must be available).
 
-**Key Indicators Calculated:**
-*   Simple Moving Average (e.g., `SMA_20`)
-*   Relative Strength Index (e.g., `RSI_14`)
-*   Moving Average Convergence Divergence (`MACD_line`, `MACD_signal`, `MACD_hist`)
-*   Bollinger Bands (`bb_bbm`, `bb_bbh`, `bb_bbl`)
-*   Ichimoku Cloud (`ichimoku_conv`, `ichimoku_base`, `ichimoku_a`, `ichimoku_b`, `ichimoku_lag`) - *Requires sufficient data length (e.g., >52 periods for default settings) and full OHLC data.*
-*   Volume Weighted Average Price (`vwap`) - *Requires volume data; will be null if volume is zero or unavailable.*
-*   Stochastic Oscillator (`stoch_k`, `stoch_d`) - *Requires full OHLC data.*
-*   Average True Range (`atr`) - *Requires full OHLC data.*
-
-**Note on Data Requirements:**
-While the script can process data containing only 'close' prices (e.g., from CoinGecko, where OHL data is duplicated from Close and Volume is 0), for the most accurate and meaningful calculations, especially for indicators like Ichimoku Cloud, VWAP, Stochastic Oscillator, and ATR, it is highly recommended to use input data that includes complete Open, High, Low, Close, and Volume (OHLCV) information (e.g., data fetched from Binance). The script will attempt to calculate all indicators but will print warnings if necessary input columns (like 'volume' for VWAP or distinct OHL for others) are missing, appear to be duplicated from the 'close' price, or if data length is insufficient for an indicator's window. In such cases, the values for affected indicators may be `null` (or `NaN`).
+**Key Indicators Calculated:** (See script help for full list and `technical_analyzer.py` for details)
+*   SMA, RSI, MACD, Bollinger Bands, Ichimoku Cloud, VWAP, Stochastic Oscillator, ATR.
+*   **Note on Data Requirements:** Full OHLCV data (e.g., from Binance) is recommended for accuracy of many indicators. The script issues warnings for missing/dummy data.
 
 **Examples:**
-
-*   **Loading from JSON, saving indicators to JSON (DB disabled):**
+*   See the script's help message for detailed examples: `python analysis_modules/technical_analyzer.py --help`
+*   **JSON in, JSON out (DB disabled):**
     ```bash
-    python analysis_modules/technical_analyzer.py --input_json_file path/to/your_input_data.json --output_json_file path/to_analysis_output/indicators.json --no_db_input --no_db_output
+    python analysis_modules/technical_analyzer.py --input_json_file path/to/input.json --output_json_file path/to/output.json --no_db_input --no_db_output
+    ```
+*   **DB in, DB out (and JSON out):**
+    ```bash
+    # Assumes .env is configured for DB
+    python analysis_modules/technical_analyzer.py --symbol BTCUSDT --limit 1000 --output_json_file path/to/output.json
     ```
 
-*   **Loading from DB, calculating indicators, saving back to DB (credentials from `.env` or CLI, also saving JSON):**
-    ```bash
-    # Example assuming .env is configured for DB:
-    python analysis_modules/technical_analyzer.py --symbol BTCUSDT --limit 1000 --output_json_file path/to_analysis_output/btcusdt_indicators.json
-    # To specify DB credentials via CLI:
-    python analysis_modules/technical_analyzer.py --symbol BTCUSDT --limit 1000 --db_host myhost --db_user myuser --db_password mypass --db_name mydb --output_json_file path/to_analysis_output/btcusdt_indicators.json
-    ```
-
-### Using the Fundamental Analyzer Script (`fundamental_analyzer.py`)
+#### Fundamental Analyzer Script (`fundamental_analyzer.py`)
 
 This script fetches detailed fundamental data for specified cryptocurrencies from CoinGecko and stores it in the `asset_fundamentals` database table.
 
 **Key Command-Line Arguments:**
-
-*   `--symbol <coingecko_id>`: Fetches fundamental data for the specified CoinGecko ID (e.g., `bitcoin`, `ethereum`). The script assumes this ID also matches a `symbol` in your `assets` table for CoinGecko-sourced assets.
-*   `--all-assets`: Iterates through all assets found in your `assets` table and attempts to fetch fundamental data for each, using their `symbol` as the CoinGecko ID. (Note: This currently assumes symbols from your `assets` table are valid CoinGecko IDs, which might need refinement if your `assets` table contains symbols from multiple sources like Binance tickers).
-*   Database arguments (`--db_host`, `--db_port`, `--db_user`, `--db_password`, `--db_name`): Specify database connection details. These are optional if corresponding environment variables are set in your `.env` file (e.g., `DB_HOST`, `DB_PASSWORD`). (Database connection is required for this script).
+*   `--symbol <coingecko_id>`: Fetches fundamental data for the specified CoinGecko ID (e.g., `bitcoin`). Assumes this ID matches a `symbol` in your `assets` table.
+*   `--all-assets`: Iterates through assets in your `assets` table to fetch their fundamental data. (Assumes symbols are valid CoinGecko IDs).
+*   Database arguments (`--db_host`, etc.): Optional if set in your `.env` file. Database connection is required.
 
 **Examples:**
-
-1.  **Fetch fundamental data for a single asset (e.g., Bitcoin):**
+*   See the script's help message for detailed examples: `python analysis_modules/fundamental_analyzer.py --help`
+*   **Fetch for a single asset (DB configured in `.env`):**
     ```bash
     python analysis_modules/fundamental_analyzer.py --symbol bitcoin
     ```
-    *(Ensure DB credentials are in `.env` or provided as CLI arguments)*
-
-2.  **Fetch fundamental data for all assets in the database:**
+*   **Fetch for all assets (DB configured in `.env`):**
     ```bash
     python analysis_modules/fundamental_analyzer.py --all-assets
     ```
-    *(This will iterate through all assets, respecting API rate limits. It can take a while for many assets.)*
+
+#### AI Price Predictor Script (`price_predictor.py`)
+
+This script provides an initial implementation of an LSTM-based model for cryptocurrency price prediction. It handles data loading from the database (price data + indicators), preprocessing, model building, and a basic training loop.
+
+**Prerequisites for ML:**
+*   Ensure TensorFlow and Scikit-learn are installed (these are in `requirements.txt`).
+*   A populated database with price data and technical indicators for the assets you wish to model.
+
+**Key Command-Line Arguments:**
+*   `--symbol <asset_symbol>`: **Required.** The symbol of the asset to model (must exist in your `assets` table).
+*   `--start_date <YYYY-MM-DD>`: Start date for loading historical data (default: 3 years ago).
+*   `--end_date <YYYY-MM-DD>`: End date for loading historical data (default: today).
+*   `--sequence_length <int>`: Length of input sequences for LSTM (default: 60).
+*   `--target_column <col_name>`: Data column to predict (default: 'close').
+*   `--epochs <int>`: Training epochs (default: 1).
+*   `--batch_size <int>`: Training batch size (default: 1).
+*   Database arguments (`--db_host`, etc.): Optional if set in `.env` file.
+
+**Example:**
+*   See the script's help message for detailed examples: `python ai_core/prediction/price_predictor.py --help`
+*   **Run prediction pipeline for Bitcoin (DB configured in `.env`):**
+    ```bash
+    python ai_core/prediction/price_predictor.py --symbol bitcoin --epochs 5
+    ```
+    *(This loads data, preprocesses, builds an LSTM model, prints summary, and trains for 5 epochs.)*
 
 ## Future Development
 
