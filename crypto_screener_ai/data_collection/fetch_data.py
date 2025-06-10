@@ -3,6 +3,15 @@ import json
 import datetime
 import argparse
 import os
+import sys
+
+# Add project root to sys.path to allow absolute imports like crypto_screener_ai.common
+project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
+if project_root not in sys.path:
+    sys.path.insert(0, project_root)
+
+from dotenv import load_dotenv
+load_dotenv() # Load .env file for environment variables
 
 # Attempt to import database and Binance libraries
 try:
@@ -20,6 +29,8 @@ except ImportError:
             def execute_values(*args, **kwargs): raise ImportError("psycopg2-binary not installed")
     print("Warning: psycopg2-binary not installed. Database operations will not be available.")
 
+# Import from common utility
+from crypto_screener_ai.common.db_utils import get_db_connection
 
 try:
     from binance.client import Client
@@ -32,29 +43,11 @@ except ImportError:
     print("Warning: python-binance not installed. Binance data fetching will not be available.")
 
 # Placeholder for user to add their Binance API keys
-# IMPORTANT: Replace with your actual Binance API key and secret for Binance functionality
-BINANCE_API_KEY = "YOUR_BINANCE_API_KEY"
-BINANCE_API_SECRET = "YOUR_BINANCE_API_SECRET"
+# Global BINANCE_API_KEY and BINANCE_API_SECRET placeholders are removed.
+# They will be resolved in main from CLI args or .env.
 
 
-def get_db_connection(db_host, db_port, db_user, db_password, db_name):
-    """Establishes a connection to the PostgreSQL database."""
-    if not DB_AVAILABLE:
-        print("Database operations unavailable: psycopg2-binary is not installed.")
-        return None
-    try:
-        conn = psycopg2.connect(
-            host=db_host,
-            port=db_port,
-            user=db_user,
-            password=db_password,
-            dbname=db_name
-        )
-        print(f"Successfully connected to database '{db_name}' on {db_host}:{db_port}")
-        return conn
-    except psycopg2.Error as e:
-        print(f"Error connecting to database '{db_name}' on {db_host}:{db_port}: {e}")
-        return None
+# Removed local get_db_connection function, will use imported one
 
 def ensure_asset_exists(conn, symbol: str, name: str, source: str) -> int | None:
     """
@@ -168,8 +161,20 @@ def get_binance_data(api_key: str, api_secret: str, symbol: str, interval: str, 
         print("Binance library not installed. Please install 'python-binance' to use this feature.")
         return None
 
-    if api_key == "YOUR_BINANCE_API_KEY" or api_secret == "YOUR_BINANCE_API_SECRET":
-        print("Warning: Using placeholder Binance API keys. Please replace them with your actual keys in the script for real data.")
+    # Check if the current API keys are the default placeholders from os.getenv
+    is_using_placeholders = (
+        api_key == "YOUR_BINANCE_API_KEY_PLACEHOLDER" or
+        api_secret == "YOUR_BINANCE_API_SECRET_PLACEHOLDER"
+    )
+
+    if is_using_placeholders:
+        print("Warning: Using SCRIPT DEFAULT placeholder Binance API keys. "
+              "Please set your actual BINANCE_API_KEY and BINANCE_API_SECRET in a .env file or as environment variables.")
+
+    # For testing purposes, to confirm .env was read (this part can be removed later)
+    # if api_key == "key_from_dotenv_test":
+    #     print("--- [Internal Test Log] Successfully loaded API key from .env file for testing. ---")
+
 
     client = Client(api_key, api_secret)
     try:
@@ -243,11 +248,15 @@ if __name__ == "__main__":
     parser.add_argument('--limit', type=int, default=500, help="Kline limit for Binance")
 
     # Database arguments
-    parser.add_argument('--db_host', default='localhost', help="Database host")
-    parser.add_argument('--db_port', default=5432, type=int, help="Database port")
-    parser.add_argument('--db_user', default='postgres', help="Database user")
-    parser.add_argument('--db_password', help="Database password (required if --no_db is not set and not using other auth)")
-    parser.add_argument('--db_name', default='crypto_data', help="Database name")
+    parser.add_argument('--db_host', default=None, help="Database host (overrides .env, default: 'localhost')")
+    parser.add_argument('--db_port', default=None, type=int, help="Database port (overrides .env, default: 5432)")
+    parser.add_argument('--db_user', default=None, help="Database user (overrides .env, default: 'postgres')")
+    parser.add_argument('--db_password', default=None, help="Database password (overrides .env or environment)")
+    parser.add_argument('--db_name', default=None, help="Database name (overrides .env, default: 'crypto_data')")
+
+    # Binance API Key arguments
+    parser.add_argument('--binance_api_key', default=None, help="Binance API Key (overrides .env)")
+    parser.add_argument('--binance_api_secret', default=None, help="Binance API Secret (overrides .env)")
 
     # Control flags
     parser.add_argument('--save_json', action='store_true', help="Save data to a JSON file.")
@@ -256,29 +265,38 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     fetched_data = None
-    asset_symbol_for_db = None # Used as 'symbol' in assets table
-    asset_name_for_db = None   # Used as 'name' in assets table
+    asset_symbol_for_db = None
+    asset_name_for_db = None
     source_for_db = args.source
+
+    # Resolve Binance API Keys: CLI > .env > Fallback Placeholder
+    active_binance_api_key = args.binance_api_key or os.getenv('BINANCE_API_KEY', "YOUR_BINANCE_API_KEY_PLACEHOLDER")
+    active_binance_api_secret = args.binance_api_secret or os.getenv('BINANCE_API_SECRET', "YOUR_BINANCE_API_SECRET_PLACEHOLDER")
 
     if args.source == 'coingecko':
         if not all([args.coin_id, args.vs_currency, args.days is not None]):
             parser.error("For CoinGecko, --coin_id, --vs_currency, and --days are required.")
         print(f"Fetching data for {args.coin_id} vs {args.vs_currency} for last {args.days} days from CoinGecko...")
         fetched_data = get_coingecko_data(args.coin_id, args.vs_currency, args.days)
-        asset_symbol_for_db = args.coin_id # e.g., "bitcoin"
-        asset_name_for_db = args.coin_id.capitalize() # e.g., "Bitcoin"
+        asset_symbol_for_db = args.coin_id
+        asset_name_for_db = args.coin_id.capitalize()
         output_filename_base = f"{args.coin_id}_{args.vs_currency}_{args.days}_days_coingecko"
 
     elif args.source == 'binance':
         if not BINANCE_AVAILABLE:
              print("Cannot fetch from Binance: 'python-binance' library is not installed.")
-             exit(1) # Exit if essential library is missing for chosen source
+             sys.exit(1)
         if not all([args.symbol, args.interval]):
             parser.error("For Binance, --symbol and --interval are required.")
+
+        # The warning for placeholders is now handled inside get_binance_data by passing resolved keys
         print(f"Fetching data for {args.symbol} interval {args.interval} from Binance...")
-        fetched_data = get_binance_data(BINANCE_API_KEY, BINANCE_API_SECRET, args.symbol, args.interval, args.start_date, args.end_date, args.limit)
-        asset_symbol_for_db = args.symbol # e.g., "BTCUSDT"
-        asset_name_for_db = args.symbol   # For Binance, symbol is often the common name used
+        fetched_data = get_binance_data(
+            active_binance_api_key, active_binance_api_secret,
+            args.symbol, args.interval, args.start_date, args.end_date, args.limit
+        )
+        asset_symbol_for_db = args.symbol
+        asset_name_for_db = args.symbol
         time_period_str = f"{args.start_date}_to_{args.end_date}" if args.start_date and args.end_date else f"last_{args.limit}"
         output_filename_base = f"{args.symbol}_{args.interval}_{time_period_str}_binance".replace(" ", "_").replace(",", "")
 
@@ -289,24 +307,40 @@ if __name__ == "__main__":
         if not args.no_db:
             if not DB_AVAILABLE:
                 print("Database operations skipped as psycopg2-binary is not available.")
-            elif not args.db_password:
-                print("Error: --db_password is required for database operations unless --no_db is specified.")
-                # Or handle other auth methods if implemented
             else:
-                conn = get_db_connection(args.db_host, args.db_port, args.db_user, args.db_password, args.db_name)
-                if conn:
-                    asset_id = ensure_asset_exists(conn, asset_symbol_for_db, asset_name_for_db, source_for_db)
-                    if asset_id:
-                        if insert_price_data(conn, asset_id, fetched_data):
-                            print("Database insertion successful.")
-                        else:
-                            print("Database insertion failed.")
-                    else:
-                        print(f"Failed to get/create asset_id for {asset_symbol_for_db}. Skipping price data insertion.")
-                    conn.close()
-                    print("Database connection closed.")
+                # Resolve DB parameters: CLI > .env > default
+                db_host = args.db_host or os.getenv('DB_HOST', 'localhost')
+
+                db_port_str = os.getenv('DB_PORT', '5432') # Default from .env or hardcoded
+                if args.db_port is not None: # CLI overrides .env
+                    db_port_str = str(args.db_port)
+                try:
+                    db_port = int(db_port_str)
+                except ValueError:
+                    print(f"Warning: Invalid DB_PORT '{db_port_str}'. Using default 5432.")
+                    db_port = 5432
+
+                db_user = args.db_user or os.getenv('DB_USER', 'postgres')
+                db_name = args.db_name or os.getenv('DB_NAME', 'crypto_data')
+                db_password = args.db_password or os.getenv('DB_PASSWORD')
+
+                if not db_password:
+                    print("Error: Database password must be provided via CLI (--db_password) or .env (DB_PASSWORD) when --no_db is not specified.")
                 else:
-                    print("Failed to connect to database. Skipping database operations.")
+                    conn = get_db_connection(db_host, db_port, db_user, db_password, db_name)
+                    if conn:
+                        asset_id = ensure_asset_exists(conn, asset_symbol_for_db, asset_name_for_db, source_for_db)
+                        if asset_id:
+                            if insert_price_data(conn, asset_id, fetched_data):
+                                print("Database insertion successful.")
+                            else:
+                                print("Database insertion failed.")
+                        else:
+                            print(f"Failed to get/create asset_id for {asset_symbol_for_db}. Skipping price data insertion.")
+                        conn.close()
+                        print("Database connection closed.")
+                    else:
+                        print("Failed to connect to database (using resolved credentials). Skipping database operations.")
         else:
             print("Skipping database insertion as --no_db flag is set.")
 
